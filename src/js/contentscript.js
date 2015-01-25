@@ -110,9 +110,8 @@ if(!env) {
         envAccount = localAccount[env];
 
         //获取页面上的号码
-        var accountText = $('.account p:nth-child(2)').text(),
-            account = accountText.slice(3),
-            name = $('.account p:nth-child(1) strong').text();
+        var account = $('#avatar-info .intro .person-uin').text(),
+            name = $('#avatar-info .intro .person-name').text();
 
         if(account) {
             if(!envAccount[account]) {
