@@ -9,3 +9,7 @@
 0.3
 =========
 1. 加入圣诞图片
+
+0.4
+=========
+1. 将manifest.json中的./->/ https://code.google.com/p/chromium/issues/detail?id=437675
