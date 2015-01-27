@@ -57,7 +57,7 @@ var autoLoginHelper = {
 
 
         //从localstorage获取数据
-        chrome.storage.local.get('accounts', function (obj) {
+        chrome.storage.sync.get('accounts', function (obj) {
             var accounts = obj['accounts'],
                 dev = accounts['dev'],
                 oa = accounts['oa'],
@@ -158,7 +158,7 @@ var autoLoginHelper = {
 
             //删除账号
 
-            chrome.storage.local.set({
+            chrome.storage.sync.set({
                 accounts: autoLoginHelper.accounts
             }, function () {
                 window.location.reload();
@@ -189,7 +189,7 @@ var autoLoginHelper = {
             $parentTd.replaceWith($('<td class="modify-pwd" data-account="' + account + '" data-env="' + env + '">' + value + '</td>'));
 
             //同步到chrome.storage
-            chrome.storage.local.set({
+            chrome.storage.sync.set({
                 accounts: autoLoginHelper.accounts
             });
         });
@@ -226,7 +226,7 @@ var autoLoginHelper = {
             $parentTd.replaceWith($('<td class="add-comment"  data-account="' + account + '" data-env="' + env + '">' + showValue + '</td>'));
 
             //同步到chrome.storage
-            chrome.storage.local.set({
+            chrome.storage.sync.set({
                 accounts: autoLoginHelper.accounts
             });
         });
@@ -242,7 +242,7 @@ var autoLoginHelper = {
 
             autoLoginHelper.accounts.defaultPwd = $this.val();
 
-            chrome.storage.local.set({
+            chrome.storage.sync.set({
                 accounts: autoLoginHelper.accounts
             }, function() {
                 $this.addClass('green-border');
@@ -259,7 +259,7 @@ var autoLoginHelper = {
 
         $('#reset').click(function() {
             if(confirm('您确认要重置小助手吗？所有的数据将会被删除。')) {
-                chrome.storage.local.remove('accounts');
+                chrome.storage.sync.remove('accounts');
                 window.location.reload();
             }
         });

@@ -17,3 +17,7 @@
 0.5
 =======
 1. 将manifest.json中的./->/ https://code.google.com/p/chromium/issues/detail?id=437675
+
+0.6
+=======
+1. 加入storage.sync api

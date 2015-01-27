@@ -89,7 +89,7 @@ if(!env) {
 
     //账户中心页面
     //从chrome localstorage 来获取数据
-    chrome.storage.local.get('accounts', function(obj) {
+    chrome.storage.sync.get('accounts', function(obj) {
         if ($.isEmptyObject(obj)) {
             obj = {
                 'dev': {},
@@ -100,7 +100,7 @@ if(!env) {
                 'accountEnvHash': {}
             };
             localAccount = obj;
-            chrome.storage.local.set({
+            chrome.storage.sync.set({
                 'accounts': localAccount
             });
         } else {
@@ -124,7 +124,7 @@ if(!env) {
 
             //设置账号的环境
             localAccount['accountEnvHash'][account] = env;
-            chrome.storage.local.set({'accounts': localAccount});
+            chrome.storage.sync.set({'accounts': localAccount});
         }
     });
 
