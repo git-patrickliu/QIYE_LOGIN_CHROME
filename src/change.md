@@ -21,3 +21,7 @@
 0.6
 =======
 1. 加入storage.sync api
+
+0.7
+=======
+1. localstorage optimal
